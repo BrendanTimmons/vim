@@ -8,6 +8,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'isRuslan/vim-es6'
 Plug 'digitaltoad/vim-pug'
+Plug 'tomlion/vim-solidity/'
 call plug#end()
 
 syntax on
