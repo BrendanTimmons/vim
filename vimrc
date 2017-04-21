@@ -1,4 +1,4 @@
-call plug#begin()
+call plug#begin('~/.config/vim/plugged')
 Plug 'kien/ctrlp.vim'
 Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-fugitive'
@@ -34,6 +34,8 @@ let mapleader = "\<space>"
 " NerdTree bindings
 nnoremap <leader>n :NERDTree ~/Sites<CR>
 nnoremap <leader>r :NERDTreeFind<CR>
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
 " Delete value of CSS property
 nnoremap <leader>; 02Wdv$i
 " Alphabetically Sort within {
