@@ -1,9 +1,8 @@
 # To update plugins:
-$ git submodule init
-
-$ git submodule update
+:PlugInstall
 
 # Relink vimrc
-$ ln -s ~/.vim/vimrc ~/.vimrc
-
-$ ln -s ~/.vim/gvimrc ~/.gvimrc
+$ ln -s ~/.config/vim/vimrc ~/.vimrc
+$ ln -s ~/.config/vim/gvimrc ~/.gvimrc
+$ ln -s ~/.config/vim/autoload ~/.vim/autoload
+$ ln -s ~/.config/vim/colors ~/.vim/colors
