@@ -24,7 +24,7 @@ colorscheme Tomorrow-Night-Eighties
 :set number
 :set laststatus=2
 :set incsearch
-:set scrolljump=35
+:set scrolloff=10
 :set cursorline
 :set omnifunc=csscomplete#CompleteCSS
 :set formatoptions-=cro
