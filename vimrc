@@ -1,52 +1,58 @@
 call plug#begin('~/.config/vim/plugged')
-Plug 'kien/ctrlp.vim'
 Plug 'Townk/vim-autoclose'
-Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
-Plug 'rstacruz/sparkup'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'isRuslan/vim-es6'
-Plug 'digitaltoad/vim-pug'
-Plug 'tomlion/vim-solidity'
 Plug 'airblade/vim-gitgutter'
+Plug 'digitaltoad/vim-pug'
+Plug 'isRuslan/vim-es6'
+Plug 'kien/ctrlp.vim'
+Plug 'rstacruz/sparkup'
+Plug 'scrooloose/nerdtree'
+Plug 'tomlion/vim-solidity'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 syntax on
 filetype plugin indent on
-set t_Co=256
+:set t_Co=256
 colorscheme Tomorrow-Night-Eighties
 
-:set synmaxcol=300
-:set expandtab
-:set tabstop=2
-:set shiftwidth=2
-:set number
-:set laststatus=2
-:set incsearch
-:set scrolloff=10
 :set cursorline
-:set omnifunc=csscomplete#CompleteCSS
+:set expandtab
 :set formatoptions-=cro
-autocmd BufNewFile,BufRead *.scss       set ft=scss.css
+:set incsearch
+:set laststatus=2
+:set number
+:set omnifunc=csscomplete#CompleteCSS
+:set scrolloff=10
+:set shiftwidth=2
+:set synmaxcol=300
+:set tabstop=2
 
 " Remap leader key to space
 let mapleader = "\<space>"
-" NerdTree bindings
+:set timeout timeoutlen=100
+
+" Remap jk to save and exit insert mode
+:imap jk <Esc>:w<CR>
+
+" HTML Stuff
+let g:html_indent_tags = 'p\|li\|nav'
+
+" CSS Stuff
+autocmd BufNewFile,BufRead *.scss :set ft=scss.css
+nnoremap <leader>; 02Wdv$i
+nnoremap <leader>s vi{:sort<CR>
+
+" Ignore files and folders in Ctrl+P
+set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
+
+" NerdTree 
 nnoremap <leader>n :NERDTree ~/Sites<CR>
 nnoremap <leader>r :NERDTreeFind<CR>
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
-" Delete value of CSS property
-nnoremap <leader>; 02Wdv$i
-" Alphabetically Sort within {
-nnoremap <leader>s vi{:sort<CR>
 
-" Ignore files and folders in Ctrl+P
-:set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
-
-let g:html_indent_tags = 'p\|li\|nav'
-
-" Remap jk to save and exit insert mode
-:imap jk <Esc>:w<CR>
-:set timeout timeoutlen=100
+" Auto watch vimrc for changes and reload.
+augroup myvimrc
+  au!
+  au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
