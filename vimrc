@@ -42,7 +42,13 @@ autocmd BufNewFile,BufRead *.scss :set ft=scss.css
 nnoremap <leader>; 02Wdv$i
 nnoremap <leader>s vi{:sort<CR>
 
-" Ignore files and folders in Ctrl+P
+" Ctrl+P setup.
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
+endif
+
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
 
 " NerdTree 
