@@ -8,6 +8,7 @@ Plug 'rstacruz/sparkup'
 Plug 'scrooloose/nerdtree'
 Plug 'tomlion/vim-solidity'
 Plug 'tpope/vim-fugitive'
+Plug 'jremmen/vim-ripgrep'
 call plug#end()
 
 syntax on
